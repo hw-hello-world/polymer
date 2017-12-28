@@ -1,0 +1,27 @@
+<!-- Load the Polymer.Element base class -->
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-checkbox/paper-checkbox.html">
+
+<dom-module id="hw-checkbox">
+    <!-- Defines the element's style and local DOM -->
+    <template>
+        <style>
+         :host {
+             display: block;
+             padding: 16px;
+         }
+         h2 { color: #C0C0C0; }
+        </style>
+
+        <h2>Material Checkbox</h2>
+        <paper-checkbox>Ready to deploy!</paper-checkbox>
+    </template>
+    <script>
+     // Your new element extends the Polymer.Element base class
+     class HwCheckbox extends Polymer.Element {
+         static get is() { return 'hw-checkbox'; }
+     }
+     // Now, register your new custom element so the browser can use it
+     customElements.define(HwCheckbox.is, HwCheckbox);
+    </script>
+</dom-module>
