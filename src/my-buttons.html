@@ -1,0 +1,95 @@
+<!-- Load the Polymer.Element base class -->
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="hw-button">
+    <template strip-whitespace>
+        <style>
+         :host {
+             display: inline-block;
+         }
+
+         span {
+             background: -webkit-linear-gradient(#fefefe, #f9f9f9), #f9f9f9;
+             background: linear-gradient(#fefefe, #f9f9f9), #f9f9f9;
+             border-color: #c3c3c3 #c3c3c3 #bebebe;
+             border-radius: 3px;
+             border: 1px solid;
+             box-shadow: rgba(0, 0, 0, 0.06) 0 1px 0, rgba(255, 255, 255, 0.1) 0 1px 0 0 inset;
+             color: #5e5e5e;
+             cursor: pointer;
+             display: block;
+             float: left;
+             height: 28px;
+             line-height: 28px;
+             padding: 0 10px;
+             text-align: center;
+             text-decoration: none;
+             font-size: 13px;
+             min-width: 100px;
+         }
+         :host([kind=primary]) span {
+             background: -webkit-linear-gradient(#4cbf9c, #44bc98), #44bc98;
+             background: linear-gradient(#4cbf9c, #44bc98), #44bc98;
+             border-color: #328c71 #328c71 #2f856b;
+             color: #FFF;
+         }
+         :host([kind="danger"]) span {
+             background: -webkit-linear-gradient(#e24545, #e13c3c), #e13c3c !important;
+             background: linear-gradient(#e24545, #e13c3c), #e13c3c !important;
+             border-color: #bd1d1d #bd1d1d #b41c1c !important;
+             color: #FFF;
+         }
+        </style>
+
+        <span><slot></slot></span>
+
+    </template>
+    <script>
+     // Your new element extends the Polymer.Element base class
+     class HwButton extends Polymer.Element {
+         static get is() { return 'hw-button'; }
+
+         static get properties() {
+             return {
+                 kind: {
+                     type: String,
+                 },
+             }
+         }
+     }
+     // Now, register your new custom element so the browser can use it
+     customElements.define(HwButton.is, HwButton);
+    </script>
+</dom-module>
+
+<dom-module id="hw-button-page">
+    <template strip-whitespace>
+        <style>
+         :host {
+             display: inline-block;
+         }
+
+        </style>
+
+        <p>
+            <hw-button>Standard Button</hw-button>
+        </p>
+        <p>
+            <hw-button kind="primary" on-click="primaryClick">Primary Button</hw-button>
+        </p>
+        <p>
+            <hw-button kind="danger">Danger Button</hw-button>
+        </p>
+
+    </template>
+    <script>
+     class HwButtonPage extends Polymer.Element {
+         static get is() { return 'hw-button-page'; }
+
+         primaryClick() {
+             console.log('primary button click');
+         }
+     }
+     customElements.define(HwButtonPage.is, HwButtonPage);
+    </script>
+</dom-module>
