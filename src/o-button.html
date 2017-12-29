@@ -1,7 +1,7 @@
 <!-- Load the Polymer.Element base class -->
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 
-<dom-module id="hw-button">
+<dom-module id="o-button">
     <template strip-whitespace>
         <style>
          :host {
@@ -41,8 +41,8 @@
     </template>
     <script>
      // Your new element extends the Polymer.Element base class
-     class HwButton extends Polymer.Element {
-         static get is() { return 'hw-button'; }
+     class OButton extends Polymer.Element {
+         static get is() { return 'o-button'; }
 
          static get properties() {
              return {
@@ -53,38 +53,6 @@
          }
      }
      // Now, register your new custom element so the browser can use it
-     customElements.define(HwButton.is, HwButton);
-    </script>
-</dom-module>
-
-<dom-module id="hw-button-page">
-    <template strip-whitespace>
-        <style>
-         :host {
-             display: inline-block;
-         }
-
-        </style>
-
-        <p>
-            <hw-button>Standard Button</hw-button>
-        </p>
-        <p>
-            <hw-button kind="primary" on-click="primaryClick">Primary Button</hw-button>
-        </p>
-        <p>
-            <hw-button kind="danger">Danger Button</hw-button>
-        </p>
-
-    </template>
-    <script>
-     class HwButtonPage extends Polymer.Element {
-         static get is() { return 'hw-button-page'; }
-
-         primaryClick() {
-             console.log('primary button click');
-         }
-     }
-     customElements.define(HwButtonPage.is, HwButtonPage);
+     customElements.define(OButton.is, OButton);
     </script>
 </dom-module>

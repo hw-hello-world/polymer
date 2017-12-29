@@ -1,0 +1,122 @@
+<!-- Load the Polymer.Element base class -->
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="o-infobox">
+    <template strip-whitespace>
+        <style>
+         :host {
+             display: block;
+             border: var(--o-border-default);
+             border-radius: var(--o-border-radius-default);
+             /*margin-bottom: 15px;*/
+             min-height: 18px;
+         }
+
+         .container {
+            display: flex;
+         }
+
+         :host .right {
+            padding: 12px;
+            word-break: break-word;
+            width: 100%;
+            background-color: var(--o-bg-color-light);
+         }
+
+         :host .left {
+            width: 36px;
+         }
+
+         :host([size="compact"]) .left {
+             width: 28px;
+         }
+         :host([size="compact"]) ::slotted(p) {
+             line-height: 1.0;
+         }
+
+         :host([type="info"]) .left {
+             background-color: var(--o-primary-color);
+         }
+         :host([type="success"]) .left {
+             background-color: var(--o-secondary-color);
+         }
+         :host([type="warning"]) .left {
+             background-color: var(--o-warning-color);
+         }
+         :host([type="error"]) .left {
+             background-color: var(--o-error-color);
+         }
+         :host([type="tip"]) .left {
+             background-color: var(--o-teach-color);
+         }
+
+         /* Style slotted content */
+         ::slotted(.bullets) {
+            list-style-type: disc;
+         }
+
+         ::slotted(h2),
+         ::slotted(h3) {
+            margin: 0;
+            padding: 0;
+            font-size: 13px;
+            font-weight: bold;
+            line-height: 18px;
+         }
+
+         ::slotted(p) {
+             line-height: 1.5;
+             margin: 0;
+             padding: 0;
+         }
+
+         ::slotted(:not(:first-child)){
+             margin-top: 9px;
+         }
+
+
+        </style>
+
+        <div class="container">
+            <span class="left">
+                <i class="icon"></i> <!-- TODO -->
+            </span>
+            <div class="right">
+                <slot></slot>
+            </div>
+        </div>
+
+    </template>
+    <script>
+     // Your new element extends the Polymer.Element base class
+     class OInfobox extends Polymer.Element {
+         static get is() { return 'o-infobox'; }
+
+         static get properties() {
+             return {
+                 type: {
+                     type: String,
+                 },
+                 size: {
+                     type: String,
+                     value: 'standard',
+                 },
+                 dismiss: {
+                     type: Boolean,
+                     value: false,
+                 },
+                 data: {  // demostrate passing customized data
+                    type: Array,
+                    value: [],
+                }
+             }
+         }
+
+         ready() {
+             super.ready();
+             console.log('infobox ready:', this.data);
+         }
+     }
+     customElements.define(OInfobox.is, OInfobox);
+    </script>
+</dom-module>

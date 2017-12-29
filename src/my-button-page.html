@@ -1,0 +1,35 @@
+<!-- Load the Polymer.Element base class -->
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="./o-button.html">
+
+<dom-module id="my-button-page">
+    <template strip-whitespace>
+        <style>
+         :host {
+             display: inline-block;
+         }
+
+        </style>
+
+        <p>
+            <o-button>Standard Button</o-button>
+        </p>
+        <p>
+            <o-button kind="primary" on-click="primaryClick">Primary Button</o-button>
+        </p>
+        <p>
+            <o-button kind="danger">Danger Button</o-button>
+        </p>
+
+    </template>
+    <script>
+     class MyButtonPage extends Polymer.Element {
+         static get is() { return 'my-button-page'; }
+
+         primaryClick() {
+             console.log('primary button click');
+         }
+     }
+     customElements.define(MyButtonPage.is, MyButtonPage);
+    </script>
+</dom-module>

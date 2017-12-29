@@ -2,7 +2,7 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-checkbox/paper-checkbox.html">
 
-<dom-module id="hw-checkbox">
+<dom-module id="my-checkbox">
     <!-- Defines the element's style and local DOM -->
     <template>
         <style>
@@ -18,10 +18,10 @@
     </template>
     <script>
      // Your new element extends the Polymer.Element base class
-     class HwCheckbox extends Polymer.Element {
-         static get is() { return 'hw-checkbox'; }
+     class MyCheckbox extends Polymer.Element {
+         static get is() { return 'my-checkbox'; }
      }
      // Now, register your new custom element so the browser can use it
-     customElements.define(HwCheckbox.is, HwCheckbox);
+     customElements.define(MyCheckbox.is, MyCheckbox);
     </script>
 </dom-module>

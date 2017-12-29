@@ -1,0 +1,56 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="./o-infobox.html">
+
+<dom-module id="my-infobox-page">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        padding: 10px;
+      }
+
+      o-infobox {
+        margin-bottom: 20px;
+      }
+    </style>
+
+    <div class="card">
+        <o-infobox size="compact" type="info">
+            <p>A compact/info callout with a subtitle only</p>
+        </o-infobox>
+
+        <o-infobox size="standard" type="info" dismiss>
+            <h3>A standard/info dismissible callout</h3>
+        </o-infobox>
+
+        <o-infobox type="success">
+            <h3>A standard/success callout with title only</h3>
+            <p>A callout with a subtitle only</p>
+        </o-infobox>
+
+        <o-infobox type="error" data='["a","b","c"]'>
+            <p>A standard/error callout with a subtitle and bullets</p>
+            <ul class="bullets">
+                <li>Here's a list item</li>
+                <li>Don't punctuate list items</li>
+                <li>Generally you don't want to use a list unless you have at least three items</li>
+            </ul>
+        </o-infobox>
+
+        <o-infobox type="tip">
+            <h3>A standard/tip callout with custom HTML content</h3>
+            <div>The content is <a href="#">NOT escaped</a></div>
+        </o-infobox>
+
+    </div>
+
+  </template>
+
+  <script>
+    class MyInfoboxPage extends Polymer.Element {
+      static get is() { return 'my-infobox-page'; }
+    }
+
+    window.customElements.define(MyInfoboxPage.is, MyInfoboxPage);
+  </script>
+</dom-module>
