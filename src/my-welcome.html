@@ -10,6 +10,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="./shared-styles.html">
+<link rel="import" href="./o-infobox.html">
+<link rel="import" href="./o-button.html">
+
 
 <dom-module id="my-welcome">
   <template>
@@ -22,12 +25,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <div class="card">
         <h1>Happy Hacking Polymer</h1>
+
+        <o-infobox type="tip">
+            <h3>Add an application you use</h3>
+            <p>
+                Start simple. Pick an app that you know the username and password to and choose the default sign-on option if prompted.
+            </p>
+            <div>
+                <o-button kind="primary" on-click="goToAddAppPage">
+                  Add App
+                </o-button>
+            </div>
+        </o-infobox>
     </div>
   </template>
 
   <script>
     class MyWelcome extends Polymer.Element {
       static get is() { return 'my-welcome'; }
+
+      goToAddAppPage() {
+        console.log('go to add app page');
+      }
     }
 
     window.customElements.define(MyWelcome.is, MyWelcome);

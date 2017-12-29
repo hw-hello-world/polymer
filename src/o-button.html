@@ -9,10 +9,10 @@
          }
 
          span {
-             background-color: var(--o-bg-color-default);
+             background-color: var(--o-btn-bg-color-default);
              border-radius: 3px;
-             border: 1px solid var(--o-border-color-dark);
-             color: var(--o-text-color-dark);
+             border: 1px solid var(--o-btn-border-color-default);
+             color: var(--o-btn-color-default);
              cursor: pointer;
              display: block;
              float: left;
@@ -26,13 +26,13 @@
          }
          :host([kind=primary]) span {
              background-color: var(--o-btn-bg-color-primary);
-             border-color: var(--o-secondary-color-border);
-             color: var(--o-white);
+             border-color: var(--o-btn-border-color-primary);
+             color: var(--o-btn-color-primary);
          }
          :host([kind="danger"]) span {
              background: var(--o-btn-bg-color-danger);
-             border-color: var(--o-border-color-error);
-             color: var(--o-white);
+             border-color: var(--o-btn-border-color-danger);
+             color: var(--o-btn-color-danger);
          }
         </style>
 
@@ -48,6 +48,7 @@
              return {
                  kind: {
                      type: String,
+                     reflectToAttribute: true,
                  },
              }
          }

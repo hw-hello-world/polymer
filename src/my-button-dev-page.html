@@ -1,0 +1,48 @@
+<!-- Load the Polymer.Element base class -->
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="./shared-styles.html">
+<link rel="import" href="./o-button.html">
+
+<dom-module id="my-button-dev-page">
+    <template strip-whitespace>
+        <style include="shared-styles">
+         :host {
+            --o-btn-bg-color-default: #337ab7;
+            --o-btn-border-color-default: #2e6da4;
+            --o-btn-color-default: var(--o-white);
+
+            --o-btn-bg-color-primary: #5bc0de;
+            --o-btn-border-color-primary: #46b8da;
+            --o-btn-color-primary: var(--o-white);
+
+            --o-btn-bg-color-danger: #f0ad4e;
+            --o-btn-border-color-danger: #eea236;
+            --o-btn-color-danger: var(--o-white);
+         }
+
+        </style>
+
+        <div class="card">
+            <p>
+                <o-button>Standard Button</o-button>
+            </p>
+            <p>
+                <o-button kind="primary" on-click="primaryClick">Primary Button</o-button>
+            </p>
+            <p>
+                <o-button kind="danger">Danger Button</o-button>
+            </p>
+        </div>
+
+    </template>
+    <script>
+     class MyButtonDevPage extends Polymer.Element {
+         static get is() { return 'my-button-dev-page'; }
+
+         primaryClick() {
+             console.log('primary button click');
+         }
+     }
+     customElements.define(MyButtonDevPage.is, MyButtonDevPage);
+    </script>
+</dom-module>
