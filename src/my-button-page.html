@@ -1,25 +1,28 @@
 <!-- Load the Polymer.Element base class -->
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="./shared-styles.html">
 <link rel="import" href="./o-button.html">
 
 <dom-module id="my-button-page">
     <template strip-whitespace>
-        <style>
+        <style include="shared-styles">
          :host {
-             display: inline-block;
+             display: block;
          }
 
         </style>
 
-        <p>
-            <o-button>Standard Button</o-button>
-        </p>
-        <p>
-            <o-button kind="primary" on-click="primaryClick">Primary Button</o-button>
-        </p>
-        <p>
-            <o-button kind="danger">Danger Button</o-button>
-        </p>
+        <div class="card">
+            <p>
+                <o-button>Standard Button</o-button>
+            </p>
+            <p>
+                <o-button kind="primary" on-click="primaryClick">Primary Button</o-button>
+            </p>
+            <p>
+                <o-button kind="danger">Danger Button</o-button>
+            </p>
+        </div>
 
     </template>
     <script>

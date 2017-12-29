@@ -1,11 +1,11 @@
 <!-- Load the Polymer.Element base class -->
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-checkbox/paper-checkbox.html">
+<link rel="import" href="./shared-styles.html">
 
-<dom-module id="my-checkbox">
-    <!-- Defines the element's style and local DOM -->
+<dom-module id="my-checkbox-page">
     <template>
-        <style>
+        <style include="shared-styles">
          :host {
              display: block;
              padding: 16px;
@@ -13,15 +13,17 @@
          h2 { color: #C0C0C0; }
         </style>
 
-        <h2>Material Checkbox</h2>
-        <paper-checkbox>Ready to deploy!</paper-checkbox>
+        <div class="card">
+            <h2>Material Checkbox</h2>
+            <paper-checkbox>Ready to deploy!</paper-checkbox>
+        </div>
     </template>
     <script>
      // Your new element extends the Polymer.Element base class
-     class MyCheckbox extends Polymer.Element {
-         static get is() { return 'my-checkbox'; }
+     class MyCheckboxPage extends Polymer.Element {
+         static get is() { return 'my-checkbox-page'; }
      }
      // Now, register your new custom element so the browser can use it
-     customElements.define(MyCheckbox.is, MyCheckbox);
+     customElements.define(MyCheckboxPage.is, MyCheckboxPage);
     </script>
 </dom-module>
