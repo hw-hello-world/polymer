@@ -8,22 +8,34 @@
              display: block;
              border: var(--o-border-default);
              border-radius: var(--o-border-radius-default);
-             /*margin-bottom: 15px;*/
              min-height: 18px;
+             position: relative;
+         }
+
+         .dismissed {
+
          }
 
          .container {
             display: flex;
          }
 
-         :host .right {
+         .right {
             padding: 12px;
             word-break: break-word;
             width: 100%;
             background-color: var(--o-bg-color-light);
          }
 
-         :host .left {
+         .right .close {
+             position: absolute;
+             cursor: pointer;
+             font-size: 10px;
+             right: 10px;
+             top: 5px;
+         }
+
+         .left {
             width: 36px;
          }
 
@@ -79,9 +91,12 @@
 
         <div class="container">
             <span class="left">
-                <i class="icon"></i> <!-- TODO -->
+                <i class="icon"></i> <!-- TODO add icons -->
             </span>
             <div class="right">
+                <template is="dom-if" if="{{dismiss}}">
+                    <span class="close" on-click="dismissMe">X</span>
+                </template>
                 <slot></slot>
             </div>
         </div>
@@ -101,7 +116,7 @@
                      type: String,
                      value: 'standard',
                  },
-                 dismiss: {
+                 dismissible: {
                      type: Boolean,
                      value: false,
                  },
@@ -112,9 +127,30 @@
              }
          }
 
+         dismissMe(event) {
+             event.preventDefault();
+             event.stopPropagation();
+             // TODO:
+             // 1. publish custom event
+             // 2. what if consume want to pass callback, e.g. customized animation?
+
+             this._fancyClose(0.9);
+         }
+
+         _fancyClose(opacity) {
+            if (opacity < 0.1) {
+                this.remove();
+            }
+
+            this.style.opacity = opacity;
+            setTimeout(() => {
+                this._fancyClose(opacity - 0.1);
+            }, 100);
+         }
+
          ready() {
              super.ready();
-             console.log('infobox ready:', this.data);
+             //console.log('infobox ready:', this.data);
          }
      }
      customElements.define(OInfobox.is, OInfobox);
