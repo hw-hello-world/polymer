@@ -94,7 +94,7 @@
                 <i class="icon"></i> <!-- TODO add icons -->
             </span>
             <div class="right">
-                <template is="dom-if" if="{{dismiss}}">
+                <template is="dom-if" if="{{dismissible}}">
                     <span class="close" on-click="dismissMe">X</span>
                 </template>
                 <slot></slot>
@@ -139,7 +139,10 @@
 
          _fancyClose(opacity) {
             if (opacity < 0.1) {
+                this.dispatchEvent(new CustomEvent('before-close', {detail: {event: 'before-close'}}));
+
                 this.remove();
+                return;
             }
 
             this.style.opacity = opacity;

@@ -20,7 +20,7 @@
             <p>A compact/info callout with a subtitle only</p>
         </o-infobox>
 
-        <o-infobox size="standard" type="info" dismissible>
+        <o-infobox size="standard" type="info" dismissible on-before-close="beforeInfoboxClose">
             <h3>A standard/info dismissible callout</h3>
         </o-infobox>
 
@@ -50,6 +50,10 @@
   <script>
     class MyInfoboxPage extends Polymer.Element {
       static get is() { return 'my-infobox-page'; }
+
+      beforeInfoboxClose(event, details) {
+        console.log('close a infobox', event, details);
+      }
     }
 
     window.customElements.define(MyInfoboxPage.is, MyInfoboxPage);
