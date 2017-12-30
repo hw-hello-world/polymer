@@ -7,9 +7,10 @@
     "eslint-plugin-html": "^2.0.0"
   },
   "scripts": {
+    "start": "polymer serve",
+    "build": "polymer build # test that psk builds without error with the CLI",
     "lint": "yarn run lint:javascript && polymer lint",
     "lint:js": "eslint . --ext js,html --ignore-path .gitignore",
-    "test": "polymer test",
-    "build": "polymer build # test that psk builds without error with the CLI"
+    "test": "polymer test"
   }
 }

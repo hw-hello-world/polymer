@@ -1,7 +1,5 @@
 # Polymer App Toolbox - Starter Kit
 
-[![Build Status](https://travis-ci.org/PolymerElements/polymer-starter-kit.svg?branch=master)](https://travis-ci.org/PolymerElements/polymer-starter-kit)
-
 This template is a starting point for building apps using a drawer-based
 layout. The layout is provided by `app-layout` elements.
 
@@ -18,49 +16,32 @@ The PRPL pattern, in a nutshell:
 * **Pre-cache** components for remaining routes
 * **Lazy-load** and progressively upgrade next routes on-demand
 
-### Migrating from Polymer Starter Kit v1?
-
-[Check out our blog post that covers what's changed in PSK2 and how to migrate!](https://www.polymer-project.org/1.0/blog/2016-08-18-polymer-starter-kit-or-polymer-cli.html)
-
-### Quickstart
-
-We've recorded a Polycast to get you up and running with PSK2 fast!
-
-<p align="center">
-  <a href="https://www.youtube.com/watch?v=HgJ0XCyBwzY&list=PLNYkxOF6rcIDdS7HWIC_BYRunV6MHs5xo&index=10">
-    <img src="https://img.youtube.com/vi/HgJ0XCyBwzY/0.jpg" alt="Polymer Starter Kit 2 video">
-  </a>
-</p>
-
 ### Setup
 
 ##### Prerequisites
 
-First, install [Polymer CLI](https://github.com/Polymer/polymer-cli) using
-[npm](https://www.npmjs.com) (we assume you have pre-installed [node.js](https://nodejs.org)).
+First, install [Polymer CLI](https://github.com/Polymer/polymer-cli) and [Bower](https://bower.io/)
 
-    npm install -g polymer-cli
+    npm install -g polymer-cli bower
 
-Second, install [Bower](https://bower.io/) using [npm](https://www.npmjs.com)
+Second, install [Yarn](https://yarnpkg.com/en/docs/install)
 
-    npm install -g bower
 
-##### Initialize project from template
+##### Install dependences
 
-    mkdir my-app
-    cd my-app
-    polymer init polymer-2-starter-kit
+    yarn install && bower install
+
 
 ### Start the development server
 
 This command serves the app at `http://127.0.0.1:8081` and provides basic URL
 routing for the app:
 
-    polymer serve
+    yarn start
 
 ### Build
 
-The `polymer build` command builds your Polymer application for production, using build configuration options provided by the command line or in your project's `polymer.json` file.  
+The `polymer build` command builds your Polymer application for production, using build configuration options provided by the command line or in your project's `polymer.json` file.
 
 You can configure your `polymer.json` file to create multiple builds. This is necessary if you will be serving different builds optimized for different browsers. You can define your own named builds, or use presets. See the documentation on [building your project for production](https://www.polymer-project.org/2.0/toolbox/build-for-production) for more information.
 
@@ -99,14 +80,14 @@ Run `polymer help build` for the full list of available options and optimization
 
 This command serves your app. Replace `build-folder-name` with the folder name of the build you want to serve.
 
-    polymer serve build/build-folder-name/
+    yarn serve build/build-folder-name/
 
 ### Run tests
 
 This command will run [Web Component Tester](https://github.com/Polymer/web-component-tester)
 against the browsers currently installed on your machine:
 
-    polymer test
+    yarn test
 
 If running Windows you will need to set the following environment variables:
 
